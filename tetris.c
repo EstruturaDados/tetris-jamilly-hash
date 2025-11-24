@@ -160,11 +160,11 @@ void trocarFrenteTopo(Fila *f, Pilha *p) {
 //      fila[frente + 2] <-> pilha[topo-2]
 void trocarTresPrimeiros(Fila *f, Pilha *p) {
     if (f->tamanho < 3) {
-        printf("\n❌ A fila não tem pelo menos 3 peças. Operação inválida.\n");
+        printf("\n A fila não tem pelo menos 3 peças. Operação inválida.\n");
         return;
     }
     if (p->topo != 2) { // topo == 2 significa exatamente 3 peças (0,1,2)
-        printf("\n❌ A pilha não tem exatamente 3 peças. Operação inválida.\n");
+        printf("\n A pilha não tem exatamente 3 peças. Operação inválida.\n");
         return;
     }
 
