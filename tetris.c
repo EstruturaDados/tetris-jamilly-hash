@@ -133,11 +133,11 @@ void exibirReserva(Pilha *p) {
 // Troca a peça da frente da fila com o topo da pilha
 void trocarFrenteTopo(Fila *f, Pilha *p) {
     if (filaVazia(f)) {
-        printf("\n❌ A fila está vazia. Não há peça para trocar.\n");
+        printf("\n A fila está vazia. Não há peça para trocar.\n");
         return;
     }
     if (pilhaVazia(p)) {
-        printf("\n❌ A pilha está vazia. Não há peça na reserva para trocar.\n");
+        printf("\n A pilha está vazia. Não há peça na reserva para trocar.\n");
         return;
     }
 
@@ -193,7 +193,7 @@ void trocarTresPrimeiros(Fila *f, Pilha *p) {
     f->itens[idxFila2] = p->itens[idxPilhaBot];
     p->itens[idxPilhaBot] = temp;
 
-    printf("\n🔁 Troca de 3 peças realizada com sucesso.\n");
+    printf("\n Troca de 3 peças realizada com sucesso.\n");
     printf("  (Fila: 3 primeiros) <--> (Pilha: de topo até base)\n");
 }
 
@@ -247,7 +247,7 @@ int main() {
                 }
 
                 Peca jogada = dequeue(&fila);
-                printf("\n🧩 Peça jogada: [%c %d]\n", jogada.nome, jogada.id);
+                printf("\n Peça jogada: [%c %d]\n", jogada.nome, jogada.id);
 
                 // Repor nova peça automaticamente
                 enqueue(&fila, gerarPeca(contadorID++));
@@ -257,7 +257,7 @@ int main() {
             // Reservar peça (push na pilha) - aceita até MAX_PILHA peças
             case 2: {
                 if (pilhaCheia(&reserva)) {
-                    printf("\n❌ Pilha cheia! Não é possível reservar mais peças.\n");
+                    printf("\n Pilha cheia! Não é possível reservar mais peças.\n");
                     break;
                 }
 
@@ -267,19 +267,19 @@ int main() {
                 // Repor nova peça automática na fila
                 enqueue(&fila, gerarPeca(contadorID++));
 
-                printf("\n✔ Peça [%c %d] movida para reserva.\n", frente.nome, frente.id);
+                printf("\n Peça [%c %d] movida para reserva.\n", frente.nome, frente.id);
                 break;
             }
 
             // Usar peça da reserva (pop) - considera a peça usada e repõe a fila
             case 3: {
                 if (pilhaVazia(&reserva)) {
-                    printf("\n❌ Nenhuma peça reservada!\n");
+                    printf("\n Nenhuma peça reservada!\n");
                     break;
                 }
 
                 Peca usada = pop(&reserva);
-                printf("\n🔄 Usando peça da reserva: [%c %d]\n", usada.nome, usada.id);
+                printf("\n Usando peça da reserva: [%c %d]\n", usada.nome, usada.id);
 
                 // Após usar a reserva, ela é considerada "jogada"
                 // então geramos nova peça e colocamos na fila para manter o tamanho
